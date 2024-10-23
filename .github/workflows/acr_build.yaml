@@ -62,13 +62,6 @@ jobs:
           context: src/${{ matrix.apps }}
           file: src/${{ matrix.apps }}/Dockerfile
           platforms: linux/amd64
-          build-args: |
-            APP_VERSION=${{ steps.set-variables.outputs.VERSION }}
           push: true
           tags: |
             ${{ steps.set-variables.outputs.REPOSITORY }}/${{ steps.set-variables.outputs.IMAGE }}:latest
-            ${{ steps.set-variables.outputs.REPOSITORY }}/${{ steps.set-variables.outputs.IMAGE }}:${{ steps.set-variables.outputs.VERSION }}
-          labels: |
-            org.opencontainers.image.source=${{ github.repositoryUrl }}
-            org.opencontainers.image.created=${{ steps.set-variables.outputs.CREATED }}
-            org.opencontainers.image.revision=${{ steps.set-variables.outputs.VERSION }}
