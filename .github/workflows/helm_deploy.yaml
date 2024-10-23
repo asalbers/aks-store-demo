@@ -36,5 +36,5 @@ jobs:
           KUBECONFIG: ${{ github.workspace }}/kubeconfig
         run: |
          cd charts/aks-store-demo       
-         helm upgrade --install aks-store-demo . --namespace default
+         helm upgrade --install aks-store-demo . --set acrName="{{ VARS.ACR_REGISTRY }}" --namespace default
          
