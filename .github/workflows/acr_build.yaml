@@ -1,4 +1,4 @@
-name: release-container-images
+name: ACR Build
 
 on:
   workflow_dispatch:
@@ -52,7 +52,7 @@ jobs:
       - name: Login to Azure Container Registry
         uses: azure/docker-login@v2
         with:
-          login-server: ${{ env.ACR_REGISTRY }}
+          login-server: ${{ VARS.ACR_REGISTRY }}
           username: ${{ secrets.ACR_CLIENT_ID }}
           password: ${{ secrets.ACR_CLIENT_PASSWORD }}
 
