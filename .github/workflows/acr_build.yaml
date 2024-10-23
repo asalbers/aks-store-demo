@@ -64,4 +64,4 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: |
-            ${{ env.ACR_REGISTRY }}/${{ steps.set-variables.outputs.IMAGE }}:latest
+            ${{ VARS.ACR_REGISTRY }}/${{ steps.set-variables.outputs.IMAGE }}:latest
