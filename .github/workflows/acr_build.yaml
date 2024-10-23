@@ -15,7 +15,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        apps: [
+        apps: [ # ignore error here
           ai-service,
           makeline-service,
           order-service,
@@ -64,4 +64,4 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: |
-            ${{ steps.set-variables.outputs.REPOSITORY }}/${{ steps.set-variables.outputs.IMAGE }}:latest
+            ${{ env.ACR_REGISTRY }}/${{ steps.set-variables.outputs.IMAGE }}:latest
