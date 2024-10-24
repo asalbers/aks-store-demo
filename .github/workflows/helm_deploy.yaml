@@ -32,7 +32,7 @@ jobs:
         with:
           azcliversion: latest
           inlineScript: |
-           az aks get-credentials --name ${{ secrets.AKS_NAME }} --resource-group ${{ secrets.RESOURCE_GROUP}} --file ${{ .github.workspace }}/kubeconfig
+           az aks get-credentials --name ${{ secrets.AKS_NAME }} --resource-group ${{ secrets.RESOURCE_GROUP}} --file ${{ github.workspace }}/kubeconfig
       
       # deploys the helm chart 
       - name: Deploy to Kubernetes using Helm
