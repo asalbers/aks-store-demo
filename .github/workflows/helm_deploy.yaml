@@ -32,12 +32,12 @@ jobs:
         with:
           azcliversion: latest
           inlineScript: |
-           az aks get-credentials --name ${{ secrets.AKS_NAME }} --resource-group ${{ secrets.RESOURCE_GROUP}}
+           az aks get-credentials --name ${{ secrets.AKS_NAME }} --resource-group ${{ secrets.RESOURCE_GROUP}} --file ${{ .github.workspace }}/kubeconfig
       
       # deploys the helm chart 
       - name: Deploy to Kubernetes using Helm
         env:
-          KUBECONFIG: /root/.kube/config
+          KUBECONFIG: ${{ .github.workspace }}/kubeconfig
         run: |
          echo $KUBECONFIG
          cd charts/aks-store-demo       
