@@ -37,8 +37,9 @@ jobs:
       # deploys the helm chart 
       - name: Deploy to Kubernetes using Helm
         env:
-          KUBECONFIG: ${{ github.workspace }}/kubeconfig
+          KUBECONFIG: ${{ github.workspace }}/.kube/config
         run: |
+         echo $KUBECONFIG
          cd charts/aks-store-demo       
          helm upgrade --install aks-store-demo . --set acrName="{{ VARS.ACR_REGISTRY }}" --namespace default
          
