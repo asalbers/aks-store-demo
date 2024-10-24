@@ -37,7 +37,7 @@ jobs:
       # deploys the helm chart 
       - name: Deploy to Kubernetes using Helm
         env:
-          KUBECONFIG: ${{ github.workspace }}/.kube/config
+          KUBECONFIG: /root/.kube/config
         run: |
          echo $KUBECONFIG
          cd charts/aks-store-demo       
