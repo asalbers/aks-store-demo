@@ -1,4 +1,4 @@
-name: helm install
+name: Deploy to Kubernetes
 
 on:
   workflow_dispatch:
