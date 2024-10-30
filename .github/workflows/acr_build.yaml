@@ -59,3 +59,4 @@ jobs:
           push: true
           tags: |
             ${{ VARS.ACR_REGISTRY }}/${{ steps.set-variables.outputs.IMAGE }}:latest
+            ${{ VARS.ACR_REGISTRY }}/${{ steps.set-variables.outputs.IMAGE }}:${{ github.sha }}
